@@ -51,4 +51,4 @@ Special thanks goes to the following sponsors:
         <source media="(prefers-color-scheme: light)" srcset="https://github.com/ibotpeaches/apktool/raw/master/.github/assets/sponsors/emerge-tools-vertical-black.svg">
         <img src="https://github.com/ibotpeaches/apktool/raw/master/.github/assets/sponsors/emerge-tools-vertical-black.svg">
     </picture>
-</a>
+</a> GTS_Max_ExpoRepo
