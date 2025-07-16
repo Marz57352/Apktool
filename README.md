@@ -51,4 +51,142 @@ Special thanks goes to the following sponsors:
         <source media="(prefers-color-scheme: light)" srcset="https://github.com/ibotpeaches/apktool/raw/master/.github/assets/sponsors/emerge-tools-vertical-black.svg">
         <img src="https://github.com/ibotpeaches/apktool/raw/master/.github/assets/sponsors/emerge-tools-vertical-black.svg">
     </picture>
-</a>
+</a>>// App.js (Main entry point for GTS - Guide to Survive)
+import React from 'react';
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+
+import HomeScreen from './screens/HomeScreen';
+import ToolsScreen from './screens/ToolsScreen';
+import DetectAIScreen from './screens/DetectAIScreen';
+import SurvivalScreen from './screens/SurvivalScreen';
+import SettingsScreen from './screens/SettingsScreen';
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={styles.container}>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ color, size }) => {
+              let iconName = '';
+              if (route.name === 'Home') iconName = 'home';
+              else if (route.name === 'Tools') iconName = 'construct';
+              else if (route.name === 'Detect AI') iconName = 'scan-circle';
+              else if (route.name === 'Survival') iconName = 'leaf';
+              else if (route.name === 'Settings') iconName = 'settings';
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: 'limegreen',
+            tabBarInactiveTintColor: 'gray',
+            headerShown: false,
+          })}
+        >
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Tools" component={ToolsScreen} />
+          <Tab.Screen name="Detect AI" component={DetectAIScreen} />
+          <Tab.Screen name="Survival" component={SurvivalScreen} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
+      </SafeAreaView>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+});
+
+// screens/HomeScreen.js
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const HomeScreen = () => {
+  return (
+    <View style={screenStyles.container}>
+      <Text style={screenStyles.text}>Welcome to GTS – Guide to Survive</Text>
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+// screens/ToolsScreen.js
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const ToolsScreen = () => {
+  return (
+    <View style={screenStyles.container}>
+      <Text style={screenStyles.text}>Toolkits for survival, engineering, chemistry, and more</Text>
+    </View>
+  );
+};
+
+export default ToolsScreen;
+
+// screens/DetectAIScreen.js
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const DetectAIScreen = () => {
+  return (
+    <View style={screenStyles.container}>
+      <Text style={screenStyles.text}>AI Detection Interface (Text, Image, Video, Audio)</Text>
+    </View>
+  );
+};
+
+export default DetectAIScreen;
+
+// screens/SurvivalScreen.js
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const SurvivalScreen = () => {
+  return (
+    <View style={screenStyles.container}>
+      <Text style={screenStyles.text}>Outdoor survival, rebuilding society, apocalypse guides</Text>
+    </View>
+  );
+};
+
+export default SurvivalScreen;
+
+// screens/SettingsScreen.js
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const SettingsScreen = () => {
+  return (
+    <View style={screenStyles.container}>
+      <Text style={screenStyles.text}>Settings: Offline access, memory folders, voice access</Text>
+    </View>
+  );
+};
+
+export default SettingsScreen;
+
+const screenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000',
+    padding: 20,
+  },
+  text: {
+    color: 'limegreen',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+});
+
